@@ -5,11 +5,10 @@ import subprocess
 
 def nmap():
     
-    outfile = sys.argv[2]
-    ip = sys.argv[3]
+    ip = sys.argv[2]
 
     try:
-        f_string = f'nmap -v -sV -sC -A -p- -oN {outfile} {ip}'
+        f_string = f'nmap -v -sV -sC -A -p- -oN nmap_enum {ip}'
         subprocess.check_output(['bash','-c', f_string])
 
     except:
@@ -23,7 +22,7 @@ def fuzz():
     ip = sys.argv[4]
 
     try:
-        f_string = f'ffuf -o fuzzdir -w {wordlist} -u {protocol}://{ip}/FUZZ -H "Host: FUZZER"'
+        f_string = f'ffuf -o fuzz_enum -w {wordlist} -u {protocol}://{ip}/FUZZ -H "Host: FUZZER"'
         subprocess.check_output(['bash','-c', f_string])
 
     except:
