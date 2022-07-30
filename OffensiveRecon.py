@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 
+import os
 import sys
 import subprocess
+import re
 
 def nmap():
     
@@ -42,6 +44,23 @@ def dirbuster():
     except:
         print('Could not execute the following request.')
         sys.exit()
+        
+def wpscan():
+
+    file = sys.argv[2]
+    api = sys.argv[3]
+
+        with open (file) as assets:
+            for asset in assets:
+
+                try:
+                    f_string = f'wpscan --url {asset} --random-user-agent --disable-tls-checks --detection-mode aggressive --api-token {api} -e vp,vt,dbe --output wpscan_enum --format cli'
+                    command = re.sub('\?|\!|\'|\n|\'|\;', '', f_string)
+                    subprocess.check_output(['bash','-c', command])
+
+                except:
+                    print('Could not execute the following request.')
+                    sys.exit()  
 
 if __name__ == '__main__':
     globals()[sys.argv[1]]()
