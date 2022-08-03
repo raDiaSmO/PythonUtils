@@ -13,7 +13,7 @@ def offensive_recon(tool):
     match tool:
 
         case 'nmap':
-            payloads.append(f'nmap -v -sV -sC -A -p- -oN nmap_enum {ip}')
+            payloads.append(f'nmap -v -sV -sC -O -p- -oN nmap_enum {ip}')
 
         case 'fuzz':
             protocol = sys.argv[3]
