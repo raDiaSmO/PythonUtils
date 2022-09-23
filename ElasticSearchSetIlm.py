@@ -12,9 +12,11 @@ def elk_set_ilm():
     f_host = f'{protocol}://{ip}:{port}'
     url = re.sub('\?|\!|\'|\n|\'|\;', '', f_host)
     beats = ['auditbeat','filebeat','metricbeat','packetbeat']
+    
     header = {
       'Content-Type': 'application/json'
     }
+    
     config = {
       "policy": {
         "phases": {
