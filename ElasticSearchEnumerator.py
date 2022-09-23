@@ -6,7 +6,7 @@ import json
 import re
 import itertools
 
-def elk():
+def elk_enumerator():
 
     ip =  sys.argv[1]
     port = sys.argv[2]
@@ -74,4 +74,4 @@ def elk():
             sys.exit()
 
 if __name__ == '__main__':            
-    elk()
+    elk_enumerator()
