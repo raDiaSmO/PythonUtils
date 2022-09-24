@@ -12,7 +12,7 @@ def elk_enumerator():
     port = sys.argv[2]
     protocol = sys.argv[3]
     f_host = f'{protocol}://{ip}:{port}'
-    url = re.sub('\?|\!|\'|\n|\'|\;', '', f_host)
+    url = re.sub('\?|\!|\'|\n|\;', '', f_host)
 
     catinfo = [
     '/_cat/segments',
